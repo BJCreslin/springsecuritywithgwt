@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 @RestController
 @RequestMapping("api/v1/developers")
 public class DeveloperRestController {
-    private List<Developer> developers = Stream.of(
+    private final List<Developer> developers = Stream.of(
             new Developer(1L, "Ivan", "Ivanoff"),
             new Developer(2L, "Peter", "Petrov"),
             new Developer(3L, "Egor", "Egorov")
