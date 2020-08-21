@@ -13,7 +13,7 @@ public class User {
     private Long id;
 
     @Column(name = "email")
-    private String emaill;
+    private String email;
 
     @Column(name = "first_name")
     private String firstName;
