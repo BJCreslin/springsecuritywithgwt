@@ -7,7 +7,7 @@ CREATE TABLE users (
   last_name VARCHAR(250) NOT NULL,
   password VARCHAR(250) NOT NULL,
   role VARCHAR(50) NOT NULL DEFAULT 'USER',
-  status VARCHAR(50) NOT NULL DEFAULT 'ACTIVE',
+  status VARCHAR(50) NOT NULL DEFAULT 'ACTIVE'
 );
 
 INSERT INTO users (  email, first_name,last_name,password,role,status) VALUES
