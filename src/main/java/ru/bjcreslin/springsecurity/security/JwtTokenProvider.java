@@ -18,17 +18,17 @@ import java.util.Date;
 @Component
 public class JwtTokenProvider {
 
-    public JwtTokenProvider(@Qualifier("userDetailsService") UserDetailsService userDetailsService) {
+    public JwtTokenProvider(@Qualifier("userDetailServiceImpl") UserDetailsService userDetailsService) {
         this.userDetailsService = userDetailsService;
     }
 
     private final UserDetailsService userDetailsService;
 
-    @Value("${iwt.secret}")
+    @Value("${jwt.secret}")
     private String secretKey;
     @Value("${jwt.expiration}")
     private Long VALIDITY_IN_MILLISECONDS;
-    @Value("${iwt.header")
+    @Value("${jwt.header")
     private String authorizationHeader;
 
     @PostConstruct
