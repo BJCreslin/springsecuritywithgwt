@@ -5,6 +5,8 @@ import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import ru.bjcreslin.springsecurity.model.Status;
+import ru.bjcreslin.springsecurity.model.User;
 
 import java.util.Collection;
 import java.util.List;
@@ -13,7 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 public class SecurityUser implements UserDetails {
 
-    private final String userName;
+    private final String username;
     private final String password;
     private final List<SimpleGrantedAuthority> authorities;
     private final boolean isActive;
@@ -31,7 +33,7 @@ public class SecurityUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return userName;
+        return username;
     }
 
     @Override
@@ -52,5 +54,16 @@ public class SecurityUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return isActive;
+    }
+
+    public static UserDetails fromUser (User user){
+     return new org.springframework.security.core.userdetails.User(
+             user.getEmail(),user.getPassword(),
+             user.getStatus().equals(Status.ACTIVE),
+             user.getStatus().equals(Status.ACTIVE),
+             user.getStatus().equals(Status.ACTIVE),
+             user.getStatus().equals(Status.ACTIVE),
+             user.getRole().getAuthorities()
+     );
     }
 }
